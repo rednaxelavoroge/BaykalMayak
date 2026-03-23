@@ -1,0 +1,5 @@
+{
+  "name": "Baikal Mayak Resort",
+  "description": "A premium resort experience on Lake Baikal with AI-powered concierge, image generation, and video animation.",
+  "requestFramePermissions": ["camera", "microphone", "geolocation"]
+}

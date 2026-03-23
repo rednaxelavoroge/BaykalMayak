@@ -1,0 +1,121 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Document ID: {userId}
+    // Fields:
+    //   - uid: string (required, immutable) - Firebase Auth UID
+    //   - displayName: string (required) - User's name
+    //   - email: string (required, format: email) - User's email
+    //   - photoURL: string (optional, format: uri) - Profile photo
+    //   - createdAt: timestamp (required, immutable) - Creation date
+    //
+    // Collection: bookings
+    // Document ID: {bookingId}
+    // Fields:
+    //   - uid: string (required, immutable) - Owner's UID
+    //   - checkIn: string (required, format: date) - Check-in date
+    //   - checkOut: string (required, format: date) - Check-out date
+    //   - guests: int (required, min: 1) - Number of guests
+    //   - status: string (required, enum: ['pending', 'confirmed', 'cancelled']) - Status
+    //   - createdAt: timestamp (required, immutable) - Creation date
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isDocOwner() {
+      return isAuthenticated() && request.auth.uid == resource.data.uid;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
+          (request.auth.token.email == "edmondlevin@gmail.com" && request.auth.token.email_verified == true));
+    }
+
+    function isValidEmail(email) {
+      return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    function isValidUrl(url) {
+      return url is string && (url.matches("^https://.*") || url.matches("^http://.*"));
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidUser(data) {
+      return hasRequiredFields(['uid', 'displayName', 'email', 'createdAt']) &&
+             hasOnlyAllowedFields(['uid', 'displayName', 'email', 'photoURL', 'createdAt', 'role']) &&
+             data.uid == request.auth.uid &&
+             data.displayName is string && data.displayName.size() > 0 && data.displayName.size() < 100 &&
+             isValidEmail(data.email) &&
+             (data.photoURL == null || isValidUrl(data.photoURL)) &&
+             data.createdAt is timestamp;
+    }
+
+    function isValidBooking(data) {
+      return hasRequiredFields(['uid', 'checkIn', 'checkOut', 'guests', 'status', 'createdAt']) &&
+             hasOnlyAllowedFields(['uid', 'checkIn', 'checkOut', 'guests', 'status', 'createdAt']) &&
+             data.uid == request.auth.uid &&
+             data.checkIn is string && data.checkIn.matches("^\\d{4}-\\d{2}-\\d{2}$") &&
+             data.checkOut is string && data.checkOut.matches("^\\d{4}-\\d{2}-\\d{2}$") &&
+             data.guests is int && data.guests > 0 && data.guests <= 20 &&
+             data.status in ['pending', 'confirmed', 'cancelled'] &&
+             data.createdAt is timestamp;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isOwner(userId) && isValidUser(request.resource.data) && 
+                      (!('role' in request.resource.data) || request.resource.data.role == 'user');
+      allow update: if (isOwner(userId) && isValidUser(request.resource.data) && 
+                        request.resource.data.role == resource.data.role &&
+                        request.resource.data.createdAt == resource.data.createdAt) || 
+                      isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /bookings/{bookingId} {
+      allow read: if isDocOwner() || isAdmin();
+      allow create: if isAuthenticated() && isValidBooking(request.resource.data);
+      allow update: if (isDocOwner() && isValidBooking(request.resource.data) && 
+                        request.resource.data.createdAt == resource.data.createdAt) || 
+                      isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /{path=**} {
+      allow read, write: if false;
+    }
+  }
+}
