@@ -1,20 +1,27 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Байкальский Маяк — сайт базы отдыха
 
-# Run and deploy your AI Studio app
+Статический сайт базы отдыха «Байкальский Маяк» (Республика Бурятия, Кабанский район, с. Дубинино).
 
-This contains everything you need to run your app locally.
+## Публикация на GitHub Pages
 
-View your app in AI Studio: https://ai.studio/apps/31a95564-db93-4db5-ad7f-cdb7bf24ef27
+1. Открой репозиторий на GitHub → **Settings** → **Pages**.
+2. В разделе **Build and deployment** → **Source** выбери **Deploy from a branch**.
+3. Branch: **main**, папка: **/ (root)** → **Save**.
+4. Через 1–2 минуты сайт будет доступен по адресу `https://<логин>.github.io/BaykalMayak/`.
 
-## Run Locally
+## Свой домен (после покупки)
 
-**Prerequisites:**  Node.js
+1. Settings → Pages → **Custom domain** → впиши домен → Save.
+2. У регистратора домена добавь DNS-записи на GitHub Pages (A-записи `185.199.108.153`, `.109.153`, `.110.153`, `.111.153` и/или CNAME на `<логин>.github.io`).
+3. Включи **Enforce HTTPS**.
 
+## Структура
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- `index.html` — главная (одностраничник с блоками, услугами, отзывами, бронью)
+- `nomera.html`, `restoran.html`, `uslugi.html`, `galereya.html`, `chasovnya.html` — подстраницы
+- `css/style.css` — стили
+- `js/main.js` — меню, лайтбокс, форма брони, анимации
+- `images/` — фотографии сайта (сжатые)
+- `ОПЛАТА.md` — как подключить онлайн-оплату
+
+Оригиналы фото (`images/Байкал_Маяк_обработанные/`) в репозиторий не входят (см. `.gitignore`).
