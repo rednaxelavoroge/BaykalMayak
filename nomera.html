@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Номера — База отдыха «Байкальский Маяк»</title>
 <meta name="description" content="Благоустроенные номера базы отдыха «Байкальский Маяк» на Байкале: тёплые деревянные корпуса, удобства в номере, номера с видом на озеро.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/fonts.css">
+
 <link rel="stylesheet" href="css/style.css">
 <!--footer__socials-added--></head>
 <body>
@@ -20,8 +20,9 @@
       <a href="restoran.html">Ресторан</a>
       <a href="uslugi.html">Услуги</a>
       <a href="chasovnya.html">Часовня</a>
+      <a href="enhaluk.html">Энхалук</a>
       <a href="galereya.html">Галерея</a>
-      <a href="kontakty.html">Контакты</a>
+      <a href="index.html#kontakty">Контакты</a>
       <a href="tel:+79025651010" class="header__phone">8 (902) 565-10-10</a>
     </nav>
     <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
@@ -29,7 +30,7 @@
 </header>
 
 <section class="page-hero">
-  <div class="page-hero__bg"><img src="images/room-7.jpg" alt="Номера базы отдыха"></div>
+  <div class="page-hero__bg"><img fetchpriority="high" decoding="async" width="1536" height="1024" src="images/room-7.jpg" alt="Номера базы отдыха"></div>
   <div class="wrap">
     <div class="breadcrumb"><a href="index.html">Главная</a> / Номера</div>
     <h1>Номера</h1>
@@ -42,57 +43,47 @@
     <div class="section-head">
       <span class="eyebrow">Проживание</span>
       <h2>Уют деревянного дома</h2>
-      <p>Все номера обустроены удобствами: душ и санузел, тёплые полы, натуральное дерево. Часть номеров — с видом на Байкал.</p>
+      <p>Все номера обустроены удобствами: душ и санузел, тёплые полы, натуральное дерево. Часть номеров — с видом на Байкал. Всего на базе 16 номеров. Цены — без питания, ориентировочные, уточняйте по телефону.</p>
     </div>
 
     <div class="room">
-      <span class="room__media"><span class="ph" data-label="Стандарт"><img src="images/room-8.jpg" alt="Двухместный стандарт"></span></span>
+      <span class="room__media"><span class="ph" data-label="3-4-местный"><img loading="lazy" decoding="async" width="1536" height="1024" src="images/room-4.jpg" alt="3-4-местный номер"></span></span>
+      <div class="room__body">
+        <h3>3–4-местный номер</h3>
+        <p>Просторный номер для компании из 3–4 человек. Тёплый деревянный интерьер, всё необходимое для отдыха большой компанией или семьёй.</p>
+        <div class="room__tags"><span class="tag">3–4 гостя</span><span class="tag">Душ / санузел</span><span class="tag">Отопление</span></div>
+      </div>
+      <div class="room__price"><span class="num">от 1 800 ₽</span><span class="per">/ чел. в сутки, без питания</span></div>
+    </div>
+
+    <div class="room">
+      <span class="room__media"><span class="ph" data-label="Стандарт"><img loading="lazy" decoding="async" width="1452" height="1083" src="images/room-8.jpg" alt="Двухместный стандарт"></span></span>
       <div class="room__body">
         <h3>Двухместный стандарт</h3>
         <p>Уютный номер из натурального дерева со всеми удобствами. Оптимальный выбор для отдыха на природе вдвоём.</p>
         <div class="room__tags"><span class="tag">2 гостя</span><span class="tag">Душ / санузел</span><span class="tag">Отопление</span></div>
       </div>
-      <div class="room__price"><span class="num">от 2 000 ₽</span><span class="per">/ чел. в сутки</span></div>
+      <div class="room__price"><span class="num">от 2 000 ₽</span><span class="per">/ чел. в сутки, без питания</span></div>
     </div>
 
     <div class="room">
-      <span class="room__media"><span class="ph" data-label="Улучшенный"><img src="images/room-1.jpg" alt="Двухместный улучшенный"></span></span>
+      <span class="room__media"><span class="ph" data-label="Полулюкс"><img loading="lazy" decoding="async" width="1531" height="1027" src="images/room-1.jpg" alt="Полулюкс"></span></span>
       <div class="room__body">
-        <h3>Двухместный улучшенный</h3>
+        <h3>Полулюкс</h3>
         <p>Просторнее и комфортнее стандарта: двуспальная кровать, зона отдыха, ТВ. Часть номеров — с видом на Байкал.</p>
         <div class="room__tags"><span class="tag">2 гостя</span><span class="tag">Душ / санузел</span><span class="tag">ТВ</span></div>
       </div>
-      <div class="room__price"><span class="num">от 3 000 ₽</span><span class="per">/ чел. в сутки</span></div>
+      <div class="room__price"><span class="num">от 3 000 ₽</span><span class="per">/ чел. в сутки, без питания</span></div>
     </div>
 
     <div class="room">
-      <span class="room__media"><span class="ph" data-label="Семейный"><img src="images/room-4.jpg" alt="Семейный номер"></span></span>
+      <span class="room__media"><span class="ph" data-label="Люкс"><img loading="lazy" decoding="async" width="1537" height="1023" src="images/room-5.jpg" alt="Люкс"></span></span>
       <div class="room__body">
-        <h3>Семейный номер</h3>
-        <p>Номер для семьи или компании друзей. Тёплый деревянный интерьер, всё необходимое для отдыха с детьми.</p>
-        <div class="room__tags"><span class="tag">2–4 гостя</span><span class="tag">Душ / санузел</span><span class="tag">ТВ</span></div>
-      </div>
-      <div class="room__price"><span class="num">от 3 500 ₽</span><span class="per">/ чел. в сутки</span></div>
-    </div>
-
-    <div class="room">
-      <span class="room__media"><span class="ph" data-label="С кухней"><img src="images/room-3.jpg" alt="Большой номер с кухней"></span></span>
-      <div class="room__body">
-        <h3>Большой номер с кухней</h3>
-        <p>Просторный номер с отдельной кухонной зоной — удобно для большой компании или длительного отдыха.</p>
-        <div class="room__tags"><span class="tag">до 4–6 гостей</span><span class="tag">Кухня</span><span class="tag">Душ / санузел</span></div>
-      </div>
-      <div class="room__price"><span class="num">от 5 000 ₽</span><span class="per">/ чел. в сутки</span></div>
-    </div>
-
-    <div class="room">
-      <span class="room__media"><span class="ph" data-label="Свадебный"><img src="images/room-5.jpg" alt="Свадебный номер"></span></span>
-      <div class="room__body">
-        <h3>Свадебный номер</h3>
+        <h3>Люкс</h3>
         <p>Самый нарядный номер базы: большая кровать, зона отдыха, панорамные окна. Для особого случая и молодожёнов.</p>
         <div class="room__tags"><span class="tag">2 гостя</span><span class="tag">Люкс</span><span class="tag">Душ / санузел</span></div>
       </div>
-      <div class="room__price"><span class="num">от 10 000 ₽</span><span class="per">/ номер в сутки</span></div>
+      <div class="room__price"><span class="num">от 10 000 ₽</span><span class="per">/ номер в сутки, без питания</span></div>
     </div>
   </div>
 </section>
@@ -101,14 +92,14 @@
   <div class="wrap">
     <div class="section-head"><span class="eyebrow">Интерьеры</span><h2>Как выглядят номера</h2></div>
     <div class="gallery">
-      <div class="gallery__item" data-lightbox="images/room-1.jpg"><span class="ph" data-label="Номер"><img src="images/room-1.jpg" alt="Номер"></span></div>
-      <div class="gallery__item" data-lightbox="images/room-3.jpg"><span class="ph" data-label="Номер"><img src="images/room-3.jpg" alt="Номер"></span></div>
-      <div class="gallery__item" data-lightbox="images/room-6.jpg"><span class="ph" data-label="Номер"><img src="images/room-6.jpg" alt="Номер"></span></div>
-      <div class="gallery__item" data-lightbox="images/room-7.jpg"><span class="ph" data-label="Номер"><img src="images/room-7.jpg" alt="Номер"></span></div>
-      <div class="gallery__item" data-lightbox="images/room-bath-1.jpg"><span class="ph" data-label="Санузел"><img src="images/room-bath-1.jpg" alt="Санузел"></span></div>
-      <div class="gallery__item" data-lightbox="images/room-bath-2.jpg"><span class="ph" data-label="Санузел"><img src="images/room-bath-2.jpg" alt="Санузел"></span></div>
-      <div class="gallery__item" data-lightbox="images/room-4.jpg"><span class="ph" data-label="Номер"><img src="images/room-4.jpg" alt="Номер"></span></div>
-      <div class="gallery__item" data-lightbox="images/room-2.jpg"><span class="ph" data-label="Номер"><img src="images/room-2.jpg" alt="Номер"></span></div>
+      <div class="gallery__item" data-lightbox="images/room-1.jpg"><span class="ph" data-label="Номер"><img loading="lazy" decoding="async" width="1531" height="1027" src="images/room-1.jpg" alt="Номер"></span></div>
+      <div class="gallery__item" data-lightbox="images/room-3.jpg"><span class="ph" data-label="Номер"><img loading="lazy" decoding="async" width="1086" height="1448" src="images/room-3.jpg" alt="Номер"></span></div>
+      <div class="gallery__item" data-lightbox="images/room-6.jpg"><span class="ph" data-label="Номер"><img loading="lazy" decoding="async" width="1537" height="1023" src="images/room-6.jpg" alt="Номер"></span></div>
+      <div class="gallery__item" data-lightbox="images/room-7.jpg"><span class="ph" data-label="Номер"><img loading="lazy" decoding="async" width="1536" height="1024" src="images/room-7.jpg" alt="Номер"></span></div>
+      <div class="gallery__item" data-lightbox="images/room-bath-1.jpg"><span class="ph" data-label="Санузел"><img loading="lazy" decoding="async" width="1448" height="1086" src="images/room-bath-1.jpg" alt="Санузел"></span></div>
+      <div class="gallery__item" data-lightbox="images/room-bath-2.jpg"><span class="ph" data-label="Санузел"><img loading="lazy" decoding="async" width="1086" height="1448" src="images/room-bath-2.jpg" alt="Санузел"></span></div>
+      <div class="gallery__item" data-lightbox="images/room-4.jpg"><span class="ph" data-label="Номер"><img loading="lazy" decoding="async" width="1536" height="1024" src="images/room-4.jpg" alt="Номер"></span></div>
+      <div class="gallery__item" data-lightbox="images/room-2.jpg"><span class="ph" data-label="Номер"><img loading="lazy" decoding="async" width="1448" height="1086" src="images/room-2.jpg" alt="Номер"></span></div>
     </div>
   </div>
 </section>
@@ -126,8 +117,8 @@
   <div class="wrap">
     <div class="footer__grid">
       <div><div class="footer__logo"><span class="logo__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="M12 22V8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg></span> Байкальский Маяк</div><p>База отдыха на берегу Байкала, в дельте Селенги. Отдых, банкеты, рыбалка и охота круглый год.</p></div>
-      <div><h4>Разделы</h4><a href="nomera.html">Номера</a><a href="restoran.html">Ресторан</a><a href="uslugi.html">Услуги</a><a href="chasovnya.html">Часовня</a><a href="galereya.html">Галерея</a></div>
-      <div><h4>Контакты</h4><a href="tel:+79025651010">8 (902) 565-10-10</a><a href="tel:+79940921488">8 (994) 092-14-88</a><a href="tel:+79516254910">8 (951) 625-49-10</a><a href="kontakty.html">Как добраться</a></div>
+      <div><h4>Разделы</h4><a href="nomera.html">Номера</a><a href="restoran.html">Ресторан</a><a href="uslugi.html">Услуги</a><a href="chasovnya.html">Часовня</a><a href="enhaluk.html">Энхалук</a><a href="galereya.html">Галерея</a></div>
+      <div><h4>Контакты</h4><a href="tel:+79025651010">8 (902) 565-10-10</a><a href="tel:+79940921488">8 (994) 092-14-88</a><a href="tel:+79516254910">8 (951) 625-49-10</a><a href="index.html#kontakty">Как добраться</a></div>
     </div>
     <div class="footer__pay"><span>Принимаем к оплате:</span><span class="pay-badge pay-badge--mir"><span class="pay-badge__dot"></span>Карты «Мир»</span><span class="pay-badge pay-badge--sbp"><span class="pay-badge__dot"></span>СБП</span><span class="pay-badge pay-badge--card"><span class="pay-badge__dot"></span>Visa · Mastercard</span></div>
     <div class="footer__pay" style="border-top:1px solid rgba(255,255,255,.1);"><span>Мы в соцсетях:</span><div class="socials" style="margin-top:0;"><a class="social-link" href="https://vk.com/id494016354" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.16 18.06c-6.61 0-10.38-4.53-10.53-12.06h3.31c.1 5.53 2.54 7.88 4.48 8.36V6h3.11v4.77c1.91-.21 3.92-2.39 4.6-4.77h3.11c-.52 2.93-2.7 5.11-4.25 6.01 1.55.73 4.03 2.63 4.98 6.05h-3.42c-.74-2.29-2.58-4.06-5.03-4.31v4.31h-1.94z"/></svg></a><a class="social-link" href="https://www.facebook.com/baikalmayak" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14V7.5c0-1.03 0-2 2-2h1.5V2.14c-.33-.04-1.57-.14-2.88-.14C11.9 2 10 3.66 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg></a></div></div>
@@ -135,7 +126,7 @@
   </div>
 </footer>
 
-<div class="lightbox" id="lightbox"><button class="lightbox__close" aria-label="Закрыть">×</button><button class="lightbox__nav lightbox__prev" aria-label="Назад">‹</button><img src="" alt=""><button class="lightbox__nav lightbox__next" aria-label="Вперёд">›</button><span class="lightbox__counter"></span></div>
+<div class="lightbox" id="lightbox"><button class="lightbox__close" aria-label="Закрыть">×</button><button class="lightbox__nav lightbox__prev" aria-label="Назад">‹</button><img loading="lazy" decoding="async" src="" alt=""><button class="lightbox__nav lightbox__next" aria-label="Вперёд">›</button><span class="lightbox__counter"></span></div>
 <script src="js/main.js"></script>
 </body>
 </html>
