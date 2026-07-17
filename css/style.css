@@ -357,6 +357,11 @@ img { max-width: 100%; display: block; }
 .svc h3 { font-size: 1.12rem; margin-bottom: 6px; }
 .svc p { font-size: .92rem; color: var(--gray-500); margin: 0; }
 
+/* ---------- Список удобств ---------- */
+.amenities { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; margin-top: 44px; }
+.amenities__group h4 { font-size: .84rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gray-500); margin-bottom: 12px; font-family: var(--font-head); font-weight: 700; }
+.amenities__group .room__tags { margin: 0; }
+
 /* ---------- Активности ---------- */
 .activities { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .activity { position: relative; border-radius: var(--radius); overflow: hidden; min-height: 230px; display: flex; align-items: flex-end; box-shadow: var(--shadow-sm); }
@@ -418,6 +423,29 @@ img { max-width: 100%; display: block; }
 .founder__role { color: var(--teal-500); font-family: var(--font-head); font-weight: 700; font-size: 1rem; margin-bottom: 18px; }
 .founder__quote { border-left: 3px solid var(--teal-500); padding-left: 18px; color: var(--gray-500); font-style: italic; margin-top: 22px; }
 
+/* ---------- Видео ---------- */
+.video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); background: #000; }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-card {
+  position: relative; display: flex; align-items: flex-end;
+  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);
+  color: #fff; padding: 26px; aspect-ratio: 16/9;
+}
+.video-card__bg { position: absolute; inset: 0; z-index: 0; }
+.video-card__bg img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.video-card::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,28,46,.1), rgba(8,28,46,.85)); }
+.video-card:hover .video-card__bg img { transform: scale(1.06); }
+.video-card__body { position: relative; z-index: 2; }
+.video-card__play {
+  width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.5);
+  display: grid; place-items: center; margin-bottom: 16px; transition: background .2s, transform .2s;
+}
+.video-card:hover .video-card__play { background: var(--teal-500); transform: scale(1.08); }
+.video-card__play svg { width: 24px; height: 24px; color: #fff; margin-left: 3px; }
+.video-card h3 { color: #fff; margin: 0 0 4px; }
+.video-card p { color: #dbe7f0; margin: 0; font-size: .92rem; }
+
 /* ---------- Соцсети ---------- */
 .socials { display: flex; gap: 12px; margin-top: 18px; }
 .social-link {
@@ -446,6 +474,7 @@ img { max-width: 100%; display: block; }
    Адаптив
    ========================================================================== */
 @media (max-width: 960px) {
+  .video-grid { grid-template-columns: 1fr; }
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
   .split, .contact-grid { grid-template-columns: 1fr; gap: 34px; }
@@ -461,6 +490,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 720px) {
+  .amenities { grid-template-columns: 1fr; }
   .nav {
     position: fixed; top: var(--header-h); left: 0; right: 0;
     background:#fff; flex-direction: column; align-items: stretch;
